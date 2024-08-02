@@ -1,37 +1,18 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-
-
-// railway.bulletinboard.techtrain.dev
-
-type Item = {
-  id: string;
-  title: string;
-};
+import { Header } from './components/Header'
+import { Home } from './pages/Home'
+import { NewThread } from './pages/NewThread'
 
 function App() {
-  const [bbsThread, setBbsThread] = useState<undefined | Item[]>(undefined);
-
-  useEffect(() => {
-    const fetchBbsThread = async () => {
-      const response = await fetch("https://railway.bulletinboard.techtrain.dev/threads");
-      setBbsThread(await response.json());
-    };
-    fetchBbsThread();
-  }, []);
   return (
-      <main>
-        <h1>新着スレッド</h1>
-        <div className='thread-titles'>
-          {bbsThread?.map((thread) => {
-            return (
-              <div className="cell" key={thread.id}>{thread.title}</div>
-            )
-          })}
-        </div>
-      </main>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/newThread" element={<NewThread />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

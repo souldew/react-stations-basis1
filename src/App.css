@@ -1,7 +1,46 @@
-#root {
+body {
+  background-color: #C0C0C0;
+}
+:root {
+  --main-c: #66D48B;
+}
+
+main {
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+  width: 60vw;
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+}
+
+header {
+  display: flex;
+  width: 100vw;
+  height: 5rem;
+  background-color: var(--main-c, #66D48B);
+  color: white;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+header a {
+  color: white;
+}
+
+.header-title {
+  font-size: 32px;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header-new-thread {
+  display:flex;
+  height: 100%;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .thread-titles {
@@ -11,10 +50,11 @@
 }
 
 .cell {
-  border: 1px #C0C0C0 solid;
+  border: 0.5px #C0C0C0 solid;
   padding: 10px 0 10px 10px;
+  background-color: white;
 }
 
 .cell:hover {
-  background-color: #C0C0C0;
+  background-color: #F5F5F5;
 }
