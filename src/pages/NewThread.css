@@ -1,18 +1,30 @@
-form {
+.new-thread-form {
   display: flex;
   flex-direction: column;
-  max-width: 640px;
-  margin: 100px auto 0;
+  width: 100%;
+  margin: 100px 0;
   gap: 50px;
 }
 
-input {
+.new-thread-input {
   padding: 0 10px 0;
   height: 3rem;
+  border-color: transparent;
+  border-radius: 5px;
 }
 
-.new-thread-btn {
-  border-radius: 30px;
-  background-color: var(--main-c, #66D48B);
-  color: white;
+
+
+.new-thread-put-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  box-sizing: border-box;
+}
+
+.new-thread-put-grid a {
+  text-decoration: underline;
+}
+
+.new-thread-put-grid div {
+  margin-left: 10%;
 }

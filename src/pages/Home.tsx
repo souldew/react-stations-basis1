@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import "./Home.css"
 
 
 // 推しについて語るスレ
@@ -26,7 +28,14 @@ export function Home() {
         <div className='thread-titles'>
           {bbsThread?.map((thread) => {
             return (
-              <div className="cell" key={thread.id}>{thread.title}</div>
+              <Link 
+                className="cell" 
+                key={thread.id} 
+                to={"/Thread"}
+                state={{title: thread.title, threadId: thread.id}}
+              >
+                {thread.title}
+              </Link>
             )
           })}
         </div>
