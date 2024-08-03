@@ -20,21 +20,22 @@ export function Thread() {
   const fetchThread = async () => {
     const response = await fetch(`https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`);
     setThread(await response.json());
-    // console.log(thread);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = { post: textarea };
     const response = await fetch(
-      `https://railway.bulletinboard.techtrain.dev/${threadId}/posts`, {
+      `https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`, {
         method: "POST",
         headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       }
     );
+    setTextarea("");
+    fetchThread();
   }
 
   useEffect(() => {
@@ -46,16 +47,18 @@ export function Thread() {
       <h1>{threadTitle}</h1>
       <div className="thread-main">
         <div className="post-flex">
-          {thread?.posts && [...thread?.posts]?.map((post) => {
+          {thread?.posts && [...thread?.posts]?.reverse().map((post) => {
             return (
               <div className="card" key={post.id}>{post.post}</div>
             );
           })}
         </div>
         <form className="new-post-flex" onSubmit={handleSubmit}>
-          <textarea placeholder="投稿しよう！" onChange={(e) => {
-            setTextarea(e.target.value)
-          }}></textarea>
+          <textarea 
+            placeholder="投稿しよう！"
+            onChange={(e) => {setTextarea(e.target.value)}}
+            value={textarea}
+          ></textarea>
           <button>投稿</button>
         </form>
       </div>

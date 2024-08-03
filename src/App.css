@@ -7,7 +7,6 @@ body {
 
 header {
   display: flex;
-  width: 100vw;
   height: 5rem;
   background-color: var(--main-c, #66D48B);
   color: white;
