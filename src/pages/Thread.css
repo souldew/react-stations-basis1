@@ -1,0 +1,39 @@
+.thread-main {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  flex-direction: row;
+  gap: 0 3vw;
+}
+
+.post-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+}
+
+.card {
+  background-color: white;
+  padding: 20px 30px;
+  min-height: 2rem;
+}
+
+.new-post-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.new-post-flex textarea {
+  height: 5rem;
+  width: 100%;
+  padding: 10px;
+  border-color: transparent;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.new-post-flex button {
+  width: 100%;
+  display: block;
+
+}

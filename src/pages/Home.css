@@ -1,0 +1,10 @@
+.cell {
+  border: 0.5px #C0C0C0 solid;
+  padding: 10px 0 10px 10px;
+  background-color: white;
+  color: var(--color);
+}
+
+.cell:hover {
+  background-color: #C0C0C0;
+}
