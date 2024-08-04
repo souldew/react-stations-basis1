@@ -14,18 +14,25 @@ export function Thread() {
   const [thread, setThread] = useState<Thread | undefined>(undefined);
   const [textarea, setTextarea] = useState<string>("");
   const location = useLocation();
-  const threadTitle = location.state.title;
+  const threadTitle: string = location.state.title;
   const threadId = location.state.threadId;
 
   const fetchThread = async () => {
-    const response = await fetch(`https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`);
-    setThread(await response.json());
+    // 変数一つに
+    try {
+      const response = await fetch(`https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`);
+      setThread(await response.json());
+    } catch(e){
+      alert("エラーです");
+      console.log(e);
+    }
+
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = { post: textarea };
-    const response = await fetch(
+    await fetch(
       `https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`, {
         method: "POST",
         headers: {

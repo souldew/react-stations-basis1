@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import "./Home.css"
 
 
-// 推しについて語るスレ
-
 type Item = {
   id: string;
   title: string;
@@ -25,7 +23,7 @@ export function Home() {
     <>
       <main>
         <h1>新着スレッド</h1>
-        <div className='thread-titles'>
+        <div className='thread-titles' style={{}}>
           {bbsThread?.map((thread) => {
             return (
               <Link 
